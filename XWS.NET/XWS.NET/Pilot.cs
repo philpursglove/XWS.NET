@@ -4,5 +4,5 @@ public class Pilot
 {
     public string Name { get; set; }
 
-    public string Chassis { get; set; }
+    public string Ship { get; set; }
 }
