@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace XWS.NET
 {
@@ -11,7 +6,34 @@ namespace XWS.NET
     {
         public Squadron FromJson(string xwsJson)
         {
-            return JsonSerializer.Deserialize<Squadron>(xwsJson);
+            Squadron squad = JsonSerializer.Deserialize<Squadron>(xwsJson);
+
+            squad.Faction = DecodeFaction(squad.Faction);
+
+            return squad;
+        }
+
+        private string DecodeFaction(string squadFaction)
+        {
+            switch (squadFaction)
+            {
+                case "galacticempire":
+                    return "Galactic Empire";
+                case "rebelalliance":
+                    return "Rebel Alliance";
+                case "firstorder":
+                    return "First Order";
+                case "scumandvillainy":
+                    return "Scum And Villainy";
+                case "resistance":
+                    return "Resistance";
+                case "galacticrepublic":
+                    return "Galactic Republic";
+                case "separatistalliance":
+                    return "Separatist Alliance";
+                default:
+                    return string.Empty;
+            }
         }
     }
 }
