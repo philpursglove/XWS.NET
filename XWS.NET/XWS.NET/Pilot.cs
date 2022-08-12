@@ -1,12 +1,24 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace XWS.NET;
 
 public class Pilot
 {
-    [JsonPropertyName("name")]
+    [JsonProperty(PropertyName = "name")]
+
     public string Name { get; set; }
 
-    [JsonPropertyName("ship")]
+    [JsonProperty(PropertyName = "ship")]
+
     public string Ship { get; set; }
+
+    [JsonProperty(PropertyName = "upgrades")]
+
+    public Upgrades Upgrades { get; set; }
+}
+
+public class Upgrades
+{
+
+
 }

@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+﻿using Newtonsoft.Json;
 
 namespace XWS.NET
 {
@@ -6,7 +6,7 @@ namespace XWS.NET
     {
         public Squadron FromJson(string xwsJson)
         {
-            Squadron squad = JsonSerializer.Deserialize<Squadron>(xwsJson);
+            Squadron squad = JsonConvert.DeserializeObject<Squadron>(xwsJson);
 
             squad.Faction = DecodeFaction(squad.Faction);
 

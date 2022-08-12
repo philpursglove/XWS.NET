@@ -1,16 +1,17 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace XWS.NET
 {
     public class Squadron
     {
-        [JsonPropertyName("faction")]
+        [JsonProperty(PropertyName = "faction")]
         public string Faction { get; set; }
 
-        [JsonPropertyName("name")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
-        [JsonPropertyName("pilots")]
+        [JsonProperty(PropertyName = "pilots")]
+
         public List<Pilot> Pilots { get; set; }
     }
 }
