@@ -37,6 +37,9 @@ public class Upgrades
     [JsonProperty(PropertyName = "talent")]
     public List<string> Talents { get; set; }
 
+    [JsonProperty(PropertyName = "tech")]
+    public List<string> Tech { get; set; }
+
     [JsonProperty(PropertyName = "title")]
     public List<string> Title { get; set; }
 
@@ -45,6 +48,5 @@ public class Upgrades
 
     [JsonProperty(PropertyName = "turret")]
     public List<string> Turrets { get; set; }
-
 
 }
