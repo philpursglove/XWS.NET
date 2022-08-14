@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore ./XWS.NET/XWSNET/XWSNET.csproj
+      run: dotnet restore ./XWS.NET/XWSNET.sln
     - name: Build
-      run: dotnet build --no-restore ./XWS.NET/XWSNET/XWSNET.csproj
+      run: dotnet build --no-restore ./XWS.NET/XWSNET.sln
     - name: Test
-      run: dotnet test --no-build --verbosity normal ./XWS.NET/XWSNET/XWSNET.csproj
+      run: dotnet test --no-build --verbosity normal ./XWS.NET/XWSNET.sln
