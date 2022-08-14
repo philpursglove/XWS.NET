@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32728.150
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWS.NET", "XWS.NET\XWS.NET.csproj", "{8903B2FD-79A0-45B8-AB07-17535D1138B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWSNET", "XWSNET\XWSNET.csproj", "{8903B2FD-79A0-45B8-AB07-17535D1138B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

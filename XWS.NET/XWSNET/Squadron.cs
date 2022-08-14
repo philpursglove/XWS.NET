@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace XWS.NET
+namespace XWSNET
 {
     public class Squadron
     {
