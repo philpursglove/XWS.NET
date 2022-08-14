@@ -7,6 +7,12 @@ public class Upgrades
     [JsonProperty(PropertyName = "astromech")]
     public List<string> Astromech { get; set; }
 
+    [JsonProperty(PropertyName = "cargo")]
+    public List<string> Cargo { get; set; }
+
+    [JsonProperty(PropertyName = "command")]
+    public List<string> Commands { get; set; }
+
     [JsonProperty(PropertyName = "configuration")]
     public List<string> Configuration { get; set; }
 
@@ -21,6 +27,9 @@ public class Upgrades
 
     [JsonProperty(PropertyName = "gunner")]
     public List<string> Gunners { get; set; }
+
+    [JsonProperty(PropertyName = "hardpoint")]
+    public List<string> Hardpoints { get; set; }
 
     [JsonProperty(PropertyName = "illicit")]
     public List<string> Illicit { get; set; }
@@ -37,6 +46,9 @@ public class Upgrades
     [JsonProperty(PropertyName = "talent")]
     public List<string> Talents { get; set; }
 
+    [JsonProperty(PropertyName = "team")]
+    public List<string> Teams { get; set; }
+
     [JsonProperty(PropertyName = "tech")]
     public List<string> Tech { get; set; }
 
@@ -48,5 +60,4 @@ public class Upgrades
 
     [JsonProperty(PropertyName = "turret")]
     public List<string> Turrets { get; set; }
-
 }
