@@ -16,11 +16,9 @@ namespace XWSNET.Tests
             var result =
                 converter.FromJson(
                     "{\"description\":\"Test Description\",\"faction\":\"galacticempire\",\"name\":\"Test Squadron\"}");
-            
+
             Assert.That(result.Name, Is.EqualTo("Test Squadron"));
             Assert.That(result.Description, Is.EqualTo("Test Description"));
         }
-
-       
     }
 }

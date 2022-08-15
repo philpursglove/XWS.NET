@@ -10,6 +10,9 @@ namespace XWSNET
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
         [JsonProperty(PropertyName = "pilots")]
 
         public List<Pilot> Pilots { get; set; }
