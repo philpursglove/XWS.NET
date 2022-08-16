@@ -156,6 +156,18 @@ public class UpgradeTests
     }
 
     [Test]
+    public void Title_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
+    {
+        var result =
+            converter.FromJson(
+                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"title\":[\"test\"]}}]}");
+
+        Pilot pilot = result.Pilots.First();
+
+        Assert.That(pilot.Upgrades.Title.Count, Is.EqualTo(1));
+    }
+
+    [Test]
     public void Torpedo_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
     {
         var result =
@@ -167,4 +179,15 @@ public class UpgradeTests
         Assert.That(pilot.Upgrades.Torpedoes.Count, Is.EqualTo(1));
     }
 
+    [Test]
+    public void Turret_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
+    {
+        var result =
+            converter.FromJson(
+                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"turret\":[\"test\"]}}]}");
+
+        Pilot pilot = result.Pilots.First();
+
+        Assert.That(pilot.Upgrades.Turrets.Count, Is.EqualTo(1));
+    }
 }
