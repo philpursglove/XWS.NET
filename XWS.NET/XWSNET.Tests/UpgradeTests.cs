@@ -96,6 +96,18 @@ public class UpgradeTests
     }
 
     [Test]
+    public void Illicit_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
+    {
+        var result =
+            converter.FromJson(
+                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"illicit\":[\"test\"]}}]}");
+
+        Pilot pilot = result.Pilots.First();
+
+        Assert.That(pilot.Upgrades.Illicit.Count, Is.EqualTo(1));
+    }
+
+    [Test]
     public void Missile_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
     {
         var result =
