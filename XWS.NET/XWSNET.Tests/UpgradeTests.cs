@@ -48,6 +48,18 @@ public class UpgradeTests
     }
 
     [Test]
+    public void Force_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
+    {
+        var result =
+            converter.FromJson(
+                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"force\":[\"test\"]}}]}");
+
+        Pilot pilot = result.Pilots.First();
+
+        Assert.That(pilot.Upgrades.ForcePowers.Count, Is.EqualTo(1));
+    }
+
+    [Test]
     public void Talent_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
     {
         var result =
