@@ -72,15 +72,15 @@ public class UpgradeTests
     }
 
     [Test]
-    public void Talent_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
+    public void Missile_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
     {
         var result =
             converter.FromJson(
-                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"talent\":[\"test\"]}}]}");
+                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"missile\":[\"test\"]}}]}");
 
         Pilot pilot = result.Pilots.First();
 
-        Assert.That(pilot.Upgrades.Talents.Count, Is.EqualTo(1));
+        Assert.That(pilot.Upgrades.Missiles.Count, Is.EqualTo(1));
     }
 
     [Test]
@@ -94,5 +94,18 @@ public class UpgradeTests
 
         Assert.That(pilot.Upgrades.Modifications.Count, Is.EqualTo(1));
     }
+
+    [Test]
+    public void Talent_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
+    {
+        var result =
+            converter.FromJson(
+                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"talent\":[\"test\"]}}]}");
+
+        Pilot pilot = result.Pilots.First();
+
+        Assert.That(pilot.Upgrades.Talents.Count, Is.EqualTo(1));
+    }
+
 
 }
