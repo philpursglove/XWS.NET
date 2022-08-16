@@ -59,7 +59,7 @@ public class Upgrades
     public List<string> Title { get; set; }
 
     [JsonProperty(PropertyName = "torpedo")]
-    public List<string> Torpedo { get; set; }
+    public List<string> Torpedoes { get; set; }
 
     [JsonProperty(PropertyName = "turret")]
     public List<string> Turrets { get; set; }
