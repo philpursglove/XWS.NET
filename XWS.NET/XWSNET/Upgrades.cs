@@ -7,6 +7,9 @@ public class Upgrades
     [JsonProperty(PropertyName = "astromech")]
     public List<string> Astromech { get; set; }
 
+    [JsonProperty(PropertyName = "cannon")]
+    public List<string> Cannons { get; set; }
+
     [JsonProperty(PropertyName = "cargo")]
     public List<string> Cargo { get; set; }
 
@@ -42,7 +45,7 @@ public class Upgrades
 
     [JsonProperty(PropertyName = "sensor")]
     public List<string> Sensors { get; set; }
-    
+
     [JsonProperty(PropertyName = "talent")]
     public List<string> Talents { get; set; }
 
