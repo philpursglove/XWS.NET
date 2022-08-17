@@ -36,6 +36,30 @@ public class UpgradeTests
     }
 
     [Test]
+    public void Cargo_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
+    {
+        var result =
+            converter.FromJson(
+                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"cargo\":[\"test\"]}}]}");
+
+        Pilot pilot = result.Pilots.First();
+
+        Assert.That(pilot.Upgrades.Cargo.Count, Is.EqualTo(1));
+    }
+
+    [Test]
+    public void Command_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
+    {
+        var result =
+            converter.FromJson(
+                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"command\":[\"test\"]}}]}");
+
+        Pilot pilot = result.Pilots.First();
+
+        Assert.That(pilot.Upgrades.Commands.Count, Is.EqualTo(1));
+    }
+
+    [Test]
     public void Configuration_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
     {
         var result =
@@ -96,6 +120,18 @@ public class UpgradeTests
     }
 
     [Test]
+    public void Hardpoint_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
+    {
+        var result =
+            converter.FromJson(
+                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"hardpoint\":[\"test\"]}}]}");
+
+        Pilot pilot = result.Pilots.First();
+
+        Assert.That(pilot.Upgrades.Hardpoints.Count, Is.EqualTo(1));
+    }
+
+    [Test]
     public void Illicit_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
     {
         var result =
@@ -153,6 +189,18 @@ public class UpgradeTests
         Pilot pilot = result.Pilots.First();
 
         Assert.That(pilot.Upgrades.Talents.Count, Is.EqualTo(1));
+    }
+
+    [Test]
+    public void Team_Upgrade_Details_Are_Read_From_An_XWS_Formatted_Input()
+    {
+        var result =
+            converter.FromJson(
+                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"team\":[\"test\"]}}]}");
+
+        Pilot pilot = result.Pilots.First();
+
+        Assert.That(pilot.Upgrades.Teams.Count, Is.EqualTo(1));
     }
 
     [Test]
