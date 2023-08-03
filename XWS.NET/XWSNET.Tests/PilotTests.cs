@@ -20,5 +20,25 @@
 
             Assert.That(result.Pilots.Count, Is.EqualTo(expectedCount));
         }
+
+        [Test]
+        public void Pilot_Equality()
+        {
+            Pilot pilot1 = new Pilot
+            {
+                Name = "Darth Vader",
+                Ship = "TIE Advanced x1",
+                Upgrades = new Upgrades()
+            };
+
+            Pilot pilot2 = new Pilot
+            {
+                Ship = "TIE Advanced x1",
+                Upgrades = new Upgrades(),
+                Name = "Darth Vader",
+            };
+
+            Assert.That(pilot1.Equals(pilot2), Is.True);
+        }
     }
 }

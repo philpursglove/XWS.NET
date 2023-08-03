@@ -1,9 +1,33 @@
 ﻿using Newtonsoft.Json;
+using System.Linq;
 
 namespace XWSNET;
 
 public class Upgrades
 {
+    public Upgrades()
+    {
+        Astromech = new List<string>();
+        Cannons = new List<string>();
+        Cargo = new List<string>();
+        Commands = new List<string>();
+        Configuration = new List<string>();
+        Crew = new List<string>();
+        Devices = new List<string>();
+        ForcePowers = new List<string>();
+        Gunners = new List<string>();
+        Hardpoints = new List<string>();
+        Illicit = new List<string>();
+        Missiles = new List<string>();
+        Modifications = new List<string>();
+        Sensors = new List<string>();
+        Teams = new List<string>();
+        Tech = new List<string>();
+        Title = new List<string>();
+        Torpedoes = new List<string>();
+        Turrets = new List<string>();
+    }
+
     [JsonProperty(PropertyName = "astromech")]
     public List<string> Astromech { get; set; }
 
@@ -63,4 +87,29 @@ public class Upgrades
 
     [JsonProperty(PropertyName = "turret")]
     public List<string> Turrets { get; set; }
+
+    public bool Equals(Upgrades compareUpgrades)
+    {
+               return this.Astromech.Intersect(compareUpgrades.Astromech).Equals(this.Astromech) &&
+                      this.Cannons.Intersect(compareUpgrades.Cannons).Equals(this.Cannons) &&
+                      this.Cargo.Intersect(compareUpgrades.Cargo).Equals(this.Cargo) &&
+                      this.Commands.Intersect(compareUpgrades.Commands).Equals(this.Commands) &&
+                      this.Configuration.Intersect(compareUpgrades.Configuration).Equals(this.Configuration) &&
+                      this.Crew.Intersect(compareUpgrades.Crew).Equals(this.Crew) &&
+                      this.Devices.Intersect(compareUpgrades.Devices).Equals(this.Devices) &&
+                      this.ForcePowers.Intersect(compareUpgrades.ForcePowers).Equals(this.ForcePowers) &&
+                      this.Gunners.Intersect(compareUpgrades.Gunners).Equals(this.Gunners) &&
+                      this.Hardpoints.Intersect(compareUpgrades.Hardpoints).Equals(this.Hardpoints) &&
+                      this.Illicit.Intersect(compareUpgrades.Illicit).Equals(this.Illicit) &&
+                      this.Missiles.Intersect(compareUpgrades.Missiles).Equals(this.Missiles) &&
+                      this.Modifications.Intersect(compareUpgrades.Modifications).Equals(this.Modifications) &&
+                      this.Sensors.Intersect(compareUpgrades.Sensors).Equals(this.Sensors) &&
+                      this.Talents.Intersect(compareUpgrades.Talents).Equals(this.Talents) &&
+                      this.Teams.Intersect(compareUpgrades.Teams).Equals(this.Teams) &&
+                      this.Tech.Intersect(compareUpgrades.Tech).Equals(this.Tech) &&
+                      this.Title.Intersect(compareUpgrades.Title).Equals(this.Title) &&
+                      this.Torpedoes.Intersect(compareUpgrades.Torpedoes).Equals(this.Torpedoes) &&
+                      this.Turrets.Intersect(compareUpgrades.Turrets).Equals(this.Turrets);
+    }
+    
 }
