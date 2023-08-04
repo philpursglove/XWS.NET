@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
-using System.Linq;
+﻿using System.Text;
+using Newtonsoft.Json;
 
 namespace XWSNET;
 
-public class Upgrades
+public class Upgrades : IEquatable<Upgrades>
 {
     public Upgrades()
     {
@@ -21,6 +21,7 @@ public class Upgrades
         Missiles = new List<string>();
         Modifications = new List<string>();
         Sensors = new List<string>();
+        Talents = new List<string>();
         Teams = new List<string>();
         Tech = new List<string>();
         Title = new List<string>();
@@ -90,26 +91,33 @@ public class Upgrades
 
     public bool Equals(Upgrades compareUpgrades)
     {
-               return this.Astromech.Intersect(compareUpgrades.Astromech).Equals(this.Astromech) &&
-                      this.Cannons.Intersect(compareUpgrades.Cannons).Equals(this.Cannons) &&
-                      this.Cargo.Intersect(compareUpgrades.Cargo).Equals(this.Cargo) &&
-                      this.Commands.Intersect(compareUpgrades.Commands).Equals(this.Commands) &&
-                      this.Configuration.Intersect(compareUpgrades.Configuration).Equals(this.Configuration) &&
-                      this.Crew.Intersect(compareUpgrades.Crew).Equals(this.Crew) &&
-                      this.Devices.Intersect(compareUpgrades.Devices).Equals(this.Devices) &&
-                      this.ForcePowers.Intersect(compareUpgrades.ForcePowers).Equals(this.ForcePowers) &&
-                      this.Gunners.Intersect(compareUpgrades.Gunners).Equals(this.Gunners) &&
-                      this.Hardpoints.Intersect(compareUpgrades.Hardpoints).Equals(this.Hardpoints) &&
-                      this.Illicit.Intersect(compareUpgrades.Illicit).Equals(this.Illicit) &&
-                      this.Missiles.Intersect(compareUpgrades.Missiles).Equals(this.Missiles) &&
-                      this.Modifications.Intersect(compareUpgrades.Modifications).Equals(this.Modifications) &&
-                      this.Sensors.Intersect(compareUpgrades.Sensors).Equals(this.Sensors) &&
-                      this.Talents.Intersect(compareUpgrades.Talents).Equals(this.Talents) &&
-                      this.Teams.Intersect(compareUpgrades.Teams).Equals(this.Teams) &&
-                      this.Tech.Intersect(compareUpgrades.Tech).Equals(this.Tech) &&
-                      this.Title.Intersect(compareUpgrades.Title).Equals(this.Title) &&
-                      this.Torpedoes.Intersect(compareUpgrades.Torpedoes).Equals(this.Torpedoes) &&
-                      this.Turrets.Intersect(compareUpgrades.Turrets).Equals(this.Turrets);
+         return this.GetHashCode() == compareUpgrades.GetHashCode();
     }
-    
+
+    public override int GetHashCode()
+    {
+        StringBuilder upgradesString = new StringBuilder();
+        upgradesString.Append(String.Join("", this.Astromech.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Cannons.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Cargo.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Commands.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Configuration.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Crew.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Devices.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.ForcePowers.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Gunners.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Hardpoints.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Illicit.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Missiles.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Modifications.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Sensors.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Talents.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Teams.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Tech.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Title.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Torpedoes.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.Turrets.OrderBy(s => s).Select(s => s.ToLower())));
+
+        return upgradesString.ToString().GetHashCode();
+    }
 }

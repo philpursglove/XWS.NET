@@ -28,13 +28,13 @@
             {
                 Name = "Darth Vader",
                 Ship = "TIE Advanced x1",
-                Upgrades = new Upgrades()
+                Upgrades = new Upgrades{Talents = new List<string> {"Marksmanship", "Deadeye Shot"}}
             };
 
             Pilot pilot2 = new Pilot
             {
                 Ship = "TIE Advanced x1",
-                Upgrades = new Upgrades(),
+                Upgrades = new Upgrades { Talents = new List<string> { "Deadeye Shot", "marksmanship" } },
                 Name = "Darth Vader",
             };
 
