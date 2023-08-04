@@ -2,7 +2,7 @@
 
 namespace XWSNET;
 
-public class Pilot
+public class Pilot : IEquatable<Pilot>
 {
     [JsonProperty(PropertyName = "name")]
 

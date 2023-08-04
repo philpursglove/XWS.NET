@@ -16,5 +16,11 @@ namespace XWSNET
         [JsonProperty(PropertyName = "pilots")]
 
         public List<Pilot> Pilots { get; set; }
+
+        public bool Equals(Squadron compareSquadron)
+        {
+            return (String.Equals(this.Faction, compareSquadron.Faction, StringComparison.InvariantCultureIgnoreCase) && 
+                this.Pilots.SequenceEqual(compareSquadron.Pilots));
+        }
     }
 }

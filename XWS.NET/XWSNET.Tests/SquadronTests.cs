@@ -2,19 +2,19 @@ namespace XWSNET.Tests
 {
     public class SquadronTests
     {
-        XWSConverter converter;
+        XWSConverter _converter;
 
         [SetUp]
         public void Setup()
         {
-            converter = new XWSConverter();
+            _converter = new XWSConverter();
         }
 
         [Test]
         public void Squadron_Details_Are_Read_From_An_XWS_Formatted_Input()
         {
             var result =
-                converter.FromJson(
+                _converter.FromJson(
                     "{\"description\":\"Test Description\",\"faction\":\"galacticempire\",\"name\":\"Test Squadron\"}");
 
             Assert.That(result.Name, Is.EqualTo("Test Squadron"));
@@ -31,10 +31,54 @@ namespace XWSNET.Tests
         public void Squadron_Faction_Is_Humanised(string unformattedFaction, string formattedFaction)
         {
             var result =
-                converter.FromJson(
+                _converter.FromJson(
                     "{\"description\":\"Test Description\",\"faction\":\"[FACTION]\",\"name\":\"Test Squadron\"}".Replace("[FACTION]", unformattedFaction));
 
             Assert.That(result.Faction, Is.EqualTo(formattedFaction));
+        }
+
+        [Test]
+        public void Squadron_Equality()
+        {
+            Squadron squadron1 = new Squadron
+            {
+                Name = "Test Squadron",
+                Description = "Test Description",
+                Faction = "Galactic Empire",
+                Pilots = new List<Pilot>
+                {
+                    new Pilot
+                    {
+                        Name = "Darth Vader",
+                        Ship = "TIE Advanced x1",
+                        Upgrades = new Upgrades
+                        {
+                            Talents = new List<string> {"Marksmanship", "Deadeye Shot"}
+                        }
+                    }
+                }
+            };
+
+            Squadron squadron2 = new Squadron
+            {
+                Name = "Test Squadron",
+                Description = "Test Description",
+                Faction = "Galactic Empire",
+                Pilots = new List<Pilot>
+                {
+                    new Pilot
+                    {
+                        Name = "Darth Vader",
+                        Ship = "TIE Advanced x1",
+                        Upgrades = new Upgrades
+                        {
+                            Talents = new List<string> {"Deadeye Shot", "Marksmanship"}
+                        }
+                    }
+                }
+            };
+
+            Assert.That(squadron1.Equals(squadron2), Is.True);
         }
     }
 }
