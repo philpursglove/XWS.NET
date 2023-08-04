@@ -89,6 +89,9 @@ public class Upgrades : IEquatable<Upgrades>
     [JsonProperty(PropertyName = "turret")]
     public List<string> Turrets { get; set; }
 
+// TODO Fill the rest of this in
+public List<string> TacticalRelays { get; set; }
+
     public bool Equals(Upgrades compareUpgrades)
     {
          return this.GetHashCode() == compareUpgrades.GetHashCode();
