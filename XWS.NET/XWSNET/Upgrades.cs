@@ -27,6 +27,7 @@ public class Upgrades : IEquatable<Upgrades>
         Title = new List<string>();
         Torpedoes = new List<string>();
         Turrets = new List<string>();
+TacticalRelays = new List<string>();
     }
 
     [JsonProperty(PropertyName = "astromech")]
