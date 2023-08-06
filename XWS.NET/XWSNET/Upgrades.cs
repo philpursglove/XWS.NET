@@ -27,7 +27,7 @@ public class Upgrades : IEquatable<Upgrades>
         Title = new List<string>();
         Torpedoes = new List<string>();
         Turrets = new List<string>();
-TacticalRelays = new List<string>();
+        TacticalRelays = new List<string>();
     }
 
     [JsonProperty(PropertyName = "astromech")]
@@ -90,8 +90,8 @@ TacticalRelays = new List<string>();
     [JsonProperty(PropertyName = "turret")]
     public List<string> Turrets { get; set; }
 
-// TODO Fill the rest of this in
-public List<string> TacticalRelays { get; set; }
+    [JsonProperty(PropertyName = "tacticalrelay")]
+    public List<string> TacticalRelays { get; set; }
 
     public bool Equals(Upgrades compareUpgrades)
     {
@@ -121,6 +121,7 @@ public List<string> TacticalRelays { get; set; }
         upgradesString.Append(String.Join("", this.Title.OrderBy(s => s).Select(s => s.ToLower())));
         upgradesString.Append(String.Join("", this.Torpedoes.OrderBy(s => s).Select(s => s.ToLower())));
         upgradesString.Append(String.Join("", this.Turrets.OrderBy(s => s).Select(s => s.ToLower())));
+        upgradesString.Append(String.Join("", this.TacticalRelays.OrderBy(s => s).Select(s => s.ToLower())));
 
         return upgradesString.ToString().GetHashCode();
     }
