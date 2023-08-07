@@ -90,7 +90,7 @@ public class Upgrades : IEquatable<Upgrades>
     [JsonProperty(PropertyName = "turret")]
     public List<string> Turrets { get; set; }
 
-    [JsonProperty(PropertyName = "tacticalrelay")]
+    [JsonProperty(PropertyName = "tactical-relay")]
     public List<string> TacticalRelays { get; set; }
 
     public bool Equals(Upgrades compareUpgrades)
