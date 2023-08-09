@@ -51,7 +51,7 @@ public class Upgrades : IEquatable<Upgrades>
     [JsonProperty(PropertyName = "device")]
     public List<string> Devices { get; set; }
 
-    [JsonProperty(PropertyName = "force")]
+    [JsonProperty(PropertyName = "force-power")]
     public List<string> ForcePowers { get; set; }
 
     [JsonProperty(PropertyName = "gunner")]
