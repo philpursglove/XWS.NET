@@ -100,7 +100,7 @@ public class UpgradeTests
     {
         var result =
             converter.FromJson(
-                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"force\":[\"test\"]}}]}");
+                "{\"description\":\"\",\"faction\":\"\",\"name\":\"\",\"pilots\":[{\"id\":\"test\",\"name\":\"test\", \"upgrades\":{\"force-power\":[\"test\"]}}]}");
 
         Pilot pilot = result.Pilots.First();
 
