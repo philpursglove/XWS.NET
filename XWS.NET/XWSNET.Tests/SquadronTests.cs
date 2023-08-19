@@ -80,5 +80,66 @@ namespace XWSNET.Tests
 
             Assert.That(squadron1.Equals(squadron2), Is.True);
         }
+
+        [Test]
+        public void Squadron_Equality_Multiple_Pilots()
+        {
+            Squadron squadron1 = new Squadron
+            {
+                Name = "Test Squadron",
+                Description = "Test Description",
+                Faction = "Galactic Empire",
+                Pilots = new List<Pilot>
+                {
+                    new Pilot
+                    {
+                        Name = "Darth Vader",
+                        Ship = "TIE Advanced x1",
+                        Upgrades = new Upgrades
+                        {
+                            Talents = new List<string> {"Marksmanship", "Deadeye Shot"}
+                        }
+                    },
+                    new Pilot
+                    {
+                        Name =  "Backstabber",
+                        Upgrades = new Upgrades
+                        {
+                            Talents = new List<string> {"Predator"}
+                        }
+                    }
+                    }
+            };
+
+            Squadron squadron2 = new Squadron
+            {
+                Name = "Test Squadron",
+                Description = "Test Description",
+                Faction = "Galactic Empire",
+                Pilots = new List<Pilot>
+                {
+                    new Pilot
+                    {
+                        Name =  "Backstabber",
+                        Upgrades = new Upgrades
+                        {
+                            Talents = new List<string> {"Predator"}
+                        }
+                    },
+                    new Pilot
+                    {
+                        Name = "Darth Vader",
+                        Ship = "TIE Advanced x1",
+                        Upgrades = new Upgrades
+                        {
+                            Talents = new List<string> {"Deadeye Shot", "Marksmanship"}
+                        }
+                    }
+                }
+            };
+
+            Assert.That(squadron1.Equals(squadron2), Is.True);
+        }
+
     }
 }

@@ -123,6 +123,6 @@ public class Upgrades : IEquatable<Upgrades>
         upgradesString.Append(String.Join("", this.Turrets.OrderBy(s => s).Select(s => s.ToLower())));
         upgradesString.Append(String.Join("", this.TacticalRelays.OrderBy(s => s).Select(s => s.ToLower())));
 
-        return upgradesString.ToString().GetHashCode();
+        return upgradesString.ToString().Replace(" ", string.Empty).GetHashCode();
     }
 }

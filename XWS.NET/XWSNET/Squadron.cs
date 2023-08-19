@@ -20,7 +20,7 @@ namespace XWSNET
         public bool Equals(Squadron compareSquadron)
         {
             return (String.Equals(this.Faction, compareSquadron.Faction, StringComparison.InvariantCultureIgnoreCase) && 
-                this.Pilots.SequenceEqual(compareSquadron.Pilots));
+                this.Pilots.OrderBy(p => p.Name).SequenceEqual(compareSquadron.Pilots.OrderBy(p => p.Name)));
         }
     }
 }
