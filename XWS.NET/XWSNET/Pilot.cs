@@ -18,9 +18,26 @@ public class Pilot : IEquatable<Pilot>
 
     public bool Equals(Pilot comparePilot)
     {
-        return (String.Equals(this.Name, comparePilot.Name, StringComparison.InvariantCultureIgnoreCase) && 
+        return (String.Equals(this.Name, comparePilot.Name, StringComparison.InvariantCultureIgnoreCase) &&
                 String.Equals(this.Ship, comparePilot.Ship, StringComparison.InvariantCultureIgnoreCase) &&
                 this.Upgrades.Equals(comparePilot.Upgrades));
-    }    
-        
+    }
+
+    public string Title()
+    {
+        if (Upgrades.Title.Any())
+        {
+            return Upgrades.Title.First();
+        }
+        return String.Empty;
+    }
+
+    public string Configuration()   
+    {
+        if (Upgrades.Configuration.Any())
+        {
+            return Upgrades.Configuration.First();
+        }
+        return String.Empty;
+    }
 }
