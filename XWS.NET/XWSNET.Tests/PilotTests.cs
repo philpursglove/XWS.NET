@@ -40,5 +40,31 @@
 
             Assert.That(pilot1.Equals(pilot2), Is.True);
         }
+
+        [Test]
+        public void Configuration()
+        {
+            Pilot pilot1 = new Pilot
+            {
+                Name = "Darth Vader",
+                Ship = "TIE Defender",
+                Upgrades = new Upgrades { Configuration = new List<string>(){"TIE Defender Elite"} }
+            };
+
+            Assert.That(pilot1.Configuration(), Is.EqualTo("TIE Defender Elite"));
+        }
+
+        [Test]
+        public void Title()
+        {
+            Pilot RAC = new Pilot()
+            {
+                Name = "Rear Admiral Chiraneau",
+                Ship = "VT-49 Decimator",
+                Upgrades = new Upgrades {Title = new List<string>() {"Dauntless"}}
+            };
+
+            Assert.That(RAC.Title(), Is.EqualTo("Dauntless"));
+        }
     }
 }
